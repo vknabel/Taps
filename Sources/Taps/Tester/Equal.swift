@@ -19,6 +19,17 @@ public extension Test {
     }
   }
 
+  /// Emits a `TestPoint`, that passes if both values are equal.
+  ///
+  /// ```swift
+  /// tape.test("test equality reflexiveness", plan: 1) { t in
+  ///   t.equal(2, 2, "must be reflexive")
+  /// }
+  /// ```
+  ///
+  /// - Parameter given: The value to be tested.
+  /// - Parameter expected: The value to be compared against.
+  /// - Parameter message: The message for the test.
   public func equal<T: Equatable>(
     _ given: T,
     _ expected: T,
@@ -32,6 +43,19 @@ public extension Test {
     report.onNext(assertEqual(given, expected, message: message, source: location))
   }
 
+  /// A curried version of `Test.equal`. Useful for `Observable`s.
+  ///
+  /// ```swift
+  /// tape.test("just emits", timeout: 0.01) { t in
+  ///   Observable.just(3).test(
+  ///     onNext: t.equal(to: 3, "just emits 3"),
+  ///     onError: t.fail(with: "just won't throw'")
+  ///   )
+  /// }
+  /// ```
+  ///
+  /// - Parameter expected: The expected value.
+  /// - Parameter message: The message for the test.
   public func equal<T: Equatable>(
     to expected: T,
     _ message: String? = nil,

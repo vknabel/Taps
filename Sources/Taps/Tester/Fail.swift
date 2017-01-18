@@ -11,6 +11,15 @@ public  extension Test {
     ])
   }
 
+  /// Just emits a failing `TestPoint`.
+  ///
+  /// ```swift
+  /// tape.test(plan: 1, directive: Directive.todo) { t in
+  ///   t.fail("not implemented")
+  /// }
+  /// ```
+  ///
+  /// - Parameter message: The message for the test.
   public func fail(
     _ message: String? = nil,
     file: String = #file,
@@ -22,8 +31,20 @@ public  extension Test {
     report.onNext(assertFail(message, source: location))
   }
 
+  /// A curried version of `fail`. Just emits a failing `TestPoint`. Useful for `Observable`s.
+  ///
+  /// ```swift
+  /// tape.test("empty", timeout: 0.01) { t in
+  ///   Observable.empty().test(
+  ///     onNext: t.fail(with: "empty doesn't emit"),
+  ///     onError: t.fail(with: "empty won't throw")
+  ///   )
+  /// }
+  /// ```
+  ///
+  /// - Parameter message: The message for the test.
   public func fail<T>(
-    _ message: String? = nil,
+    with message: String? = nil,
     file: String = #file,
     line: Int = #line,
     column: Int = #column,

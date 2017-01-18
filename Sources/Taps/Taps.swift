@@ -17,8 +17,27 @@ fileprivate extension ObservableType {
   }
 }
 
-/// Static attributes will operate on Taps itself
-/// All other are for testing purposes
+/// This is the entry point for all of your tests.
+/// Declare a function that takes `Tape` and write your tests!
+/// In order to see how to test in detail see `Test`.
+///
+/// ```swift
+/// func describeYourTestSubject(taps: Taps) {
+///   taps.test("test property") { (t: Test)
+///     // Test property in here...
+///     t.end()
+///   }
+///
+///   // more tests here...
+/// }
+///
+/// // Starting tests
+/// Tape.runMain(tests: [
+///   describeYourTestSubject
+/// ])
+/// ```
+///
+/// If you want to test `Observable`s, use `RxTaps`.
 public final class Taps {
   private let testCases = ReplaySubject<TestCase>.createUnbounded()
   private let testBag = DisposeBag()
@@ -30,6 +49,10 @@ public final class Taps {
   }())
   private let harness: TapsHarness
 
+  /// Creates a cold `Taps` instance using a `TapsHarness`,
+  /// that won't start running `Test`s by default.
+  ///
+  /// - Parameter harness: The `TapsHarness` that shall be used. Uses `TapHarness.printHarness` by default.
   public init(harness: TapsHarness? = nil) {
     self.harness = harness ?? .printHarness
   }
@@ -70,14 +93,22 @@ public final class Taps {
       )
   }
 
+  /// Starts to execute all `Test`s for the current `Taps`.
+  /// All tests will be interrupted on dispose.
   public func start() -> Disposable {
     return runner.subscribe()
   }
 
+  /// Starts to execute all `Test`s for the current `Taps`.
+  /// All tests run until all are finished.
   public func run() {
     return start().addDisposableTo(testBag)
   }
 
+
+  /// Starts to execute all `Test`s for the current `Taps`.
+  /// Thereafter, there won't be executed anything.
+  /// Exits with 1 if there were errors.
   public func runMain() -> Never {
     do {
       guard let count = try runner.toBlocking().first() else {
@@ -111,6 +142,11 @@ public final class Taps {
     )
   }
 
+  /// Creates a hot `Taps`, that executes all given `Test`s.
+  /// All tests will be interrupted on dispose.
+  /// Uses the print harness `TapHarness.printHarness`.
+  ///
+  /// - Parameter tests: All tests to be executed.
   public static func start(tests: [(Taps) -> Void]) -> Disposable {
     let taps = Taps()
 
@@ -123,6 +159,11 @@ public final class Taps {
     return taps.start()
   }
 
+  /// Creates a hot `Taps`, that executes all given `Test`s.
+  /// All tests will be interrupted on dispose.
+  ///
+  /// - Parameter harness: The harness, that interprets the output.
+  /// - Parameter tests: All tests to be executed.
   public static func start(with harness: TapsHarness, tests: [(Taps) -> Void]) -> Disposable {
     let taps = Taps(harness: harness)
 
@@ -135,6 +176,11 @@ public final class Taps {
     return taps.start()
   }
 
+  /// Creates a hot `Taps`, that executes all given `Test`s.
+  /// All tests will be interrupted when `Taps` gets deinitialized.
+  /// Uses the print harness `TapHarness.printHarness`.
+  ///
+  /// - Parameter tests: All tests to be executed.
   public static func run(tests: [(Taps) -> Void]) -> Taps {
     let taps = Taps()
 
@@ -148,6 +194,11 @@ public final class Taps {
     return taps
   }
 
+  /// Creates a hot `Taps`, that executes all given `Test`s.
+  /// All tests will be interrupted when `Taps` gets deinitialized.
+  ///
+  /// - Parameter harness: The harness, that interprets the output.
+  /// - Parameter tests: All tests to be executed.
   public static func run(with harness: TapsHarness, tests: [(Taps) -> Void]) -> Taps {
     let taps = Taps(harness: harness)
 
@@ -161,6 +212,11 @@ public final class Taps {
     return taps
   }
 
+  /// Creates a hot `Taps`, that executes all given `Test`s.
+  /// All tests will be executed. Exits with 1 if there were errors.
+  /// Uses the print harness `TapHarness.printHarness`.
+  ///
+  /// - Parameter tests: All tests to be executed.
   public static func runMain(tests: [(Taps) -> Void]) -> Never {
     let taps = Taps()
 
@@ -173,6 +229,12 @@ public final class Taps {
     taps.runMain()
   }
 
+  /// Creates a hot `Taps`, that executes all given `Test`s.
+  /// All tests will be executed. Exits with 1 if there were errors.
+  /// All tests will be interrupted when `Taps` gets deinitialized.
+  ///
+  /// - Parameter harness: The harness, that interprets the output.
+  /// - Parameter tests: All tests to be executed.
   public static func runMain(with harness: TapsHarness, tests: [(Taps) -> Void]) -> Never {
     let taps = Taps(harness: harness)
 

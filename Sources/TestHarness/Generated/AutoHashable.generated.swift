@@ -17,8 +17,10 @@ fileprivate func combineHashes(_ hashes: Int...) -> Int {
 // MARK: - AutoHashable for classes, protocols, structs
 
 // MARK: - Directive AutoHashable
+/// :nodoc:
 extension Directive: Hashable {
     
+    /// :nodoc:
     public var hashValue: Int {
         return combineHashes(kind.hashValue, message?.hashValue ?? 0, description.hashValue, 0)
     }
@@ -28,7 +30,9 @@ extension Directive: Hashable {
 // MARK: - AutoHashable for Enums
 
 // MARK: - Directive.Kind AutoHashable
+/// :nodoc:
 extension Directive.Kind: Hashable {
+    /// :nodoc:
     public var hashValue: Int {
         switch self {
             
