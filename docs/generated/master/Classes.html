@@ -19,7 +19,7 @@
         <a class="header-link" href="index.html">
           Taps Docs
         </a>
-         (13% documented)
+         (100% documented)
       </p>
     
         <p class="header-col header-col--secondary">
@@ -50,13 +50,13 @@
             <a class="nav-group-name-link" href="Guides.html">Guides</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="0-landing.html">0. Landing</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="1-getting-started.html">1. Getting Started</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="2-customizing-output.html">2. Customizing Output</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="index.html">index</a>
               </li>
             </ul>
           </li>
@@ -87,20 +87,6 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extensions/Observable.html">Observable</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Functions.html">Functions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/s:F4Tapsoi2eeFTVS_14SourceLocationS0__Sb">==(_:_:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/s:F4Tapsoi2eeFTVS_9TestCountS0__Sb">==(_:_:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/s:F4Tapsoi2eeFTVS_9TestPointS0__Sb">==(_:_:)</a>
               </li>
             </ul>
           </li>
@@ -150,9 +136,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Serves the Rx part of <code><a href="Classes/Taps.html">Taps</a></code>.</p>
 
                         <a href="Classes/RxTaps.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">RxTaps</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -174,8 +168,26 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Static attributes will operate on Taps itself
-All other are for testing purposes</p>
+                        <p>This is the entry point for all of your tests.
+Declare a function that takes <code>Tape</code> and write your tests!
+In order to see how to test in detail see <code><a href="Classes/Test.html">Test</a></code>.</p>
+
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeYourTestSubject</span><span class="p">(</span><span class="nv">taps</span><span class="p">:</span> <span class="kt">Taps</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">taps</span><span class="o">.</span><span class="nf">test</span><span class="p">(</span><span class="s">"test property"</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nv">t</span><span class="p">:</span> <span class="kt">Test</span><span class="p">)</span>
+    <span class="c1">// Test property in here...</span>
+    <span class="n">t</span><span class="o">.</span><span class="nf">end</span><span class="p">()</span>
+  <span class="p">}</span>
+
+  <span class="c1">// more tests here...</span>
+<span class="p">}</span>
+
+<span class="c1">// Starting tests</span>
+<span class="kt">Tape</span><span class="o">.</span><span class="nf">runMain</span><span class="p">(</span><span class="nv">tests</span><span class="p">:</span> <span class="p">[</span>
+  <span class="n">describeYourTestSubject</span>
+<span class="p">])</span>
+</code></pre>
+
+<p>If you want to test <code>Observable</code>s, use <code><a href="Classes/RxTaps.html">RxTaps</a></code>.</p>
 
                         <a href="Classes/Taps.html" class="slightly-smaller">See more</a>
                       </div>
@@ -207,9 +219,18 @@ All other are for testing purposes</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Provides functions, that create <code><a href="Structs/TestPoint.html">TestPoint</a></code>s.
+Each <code><a href="Structs/TestPoint.html">TestPoint</a></code> is associated to a <code>Test</code>.</p>
 
                         <a href="Classes/Test.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">Test</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
