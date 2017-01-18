@@ -35,7 +35,7 @@ func describeReadmeExamples(t: Taps) {
     return myService.someObservable()
       .test(
         onNext: t.equal(to: 3, "should only emit 3"),
-        onError: t.fail("should not throw")
+        onError: t.fail(with: "should not throw")
       )
   }
 }
