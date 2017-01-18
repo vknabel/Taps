@@ -1,0 +1,11 @@
+included:
+  - Sources
+  - Tests
+excluded:
+  - Sources/TestHarness/Generated/
+  - Templates
+  - Tests/LinuxMain.swift
+variable_name:
+  excluded:
+    - t
+    - ok

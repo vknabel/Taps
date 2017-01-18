@@ -1,0 +1,10 @@
+author: Valentin Knabel
+author_url: https://twitter.com/vknabel
+github_url: https://github.com/vknabel/Taps
+sourcekitten-sourcefile: Taps.json
+module: Taps
+module_version: 0.0.1
+root_url: https://vknabel.github.io/Taps/
+readme: README.md
+theme: fullwidth
+documentation: docs/*.md

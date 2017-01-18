@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "AC2BB6B3DB62374DFB05D706CBE9C221D3F2062D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "AC2BB6B3DB62374DFB05D706CBE9C221D3F2062D" : 9223372036854775807,
+    "8B123162C394A0A0A138779108E4C59DD771865A" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "77B6656A-001B-4041-ABDE-2B653E8112EC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "AC2BB6B3DB62374DFB05D706CBE9C221D3F2062D" : "RxTape\/",
+    "8B123162C394A0A0A138779108E4C59DD771865A" : "RxTape\/.build\/checkouts\/RxSwift-6104213407005881262\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Taps",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Taps.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "\/Users\/vknabel\/nativedev\/vknabel\/RxTape\/.build\/repositories\/RxSwift-6104213407005881262",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8B123162C394A0A0A138779108E4C59DD771865A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:vknabel\/RxTape.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AC2BB6B3DB62374DFB05D706CBE9C221D3F2062D"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+module RxCocoaRuntime {
+    umbrella header "/Users/vknabel/nativedev/vknabel/RxTape/.build/checkouts/RxSwift-6104213407005881262/Sources/RxCocoaRuntime/include/RxCocoaRuntime.h"
+    export *
+}

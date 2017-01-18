@@ -1,0 +1,48 @@
+name: Taps
+dependencies:
+  - sourcery@0.5.3
+  - swiftlint@0.16.0
+version: 0.0.1
+scripts:
+  prepare:
+    - bundle install
+    - rock install
+  docs:
+    - rock build
+    - ./Scripts/docs.sh
+    - jazzy --sourcekitten-sourcefile Taps.json --clean --module-version {{version}} --output docs/generated/master
+  docs-release:
+    - rock build
+    - ./Scripts/docs.sh
+    - jazzy --sourcekitten-sourcefile Taps.json --clean --module-version {{version}} --output docs/generated/{{version}}
+  generate:
+    # Generate TestHarness.AutoEquatable
+    - sourcery Sources/TestHarness/Generating Templates/AutoEquatable.swift.stencil Sources/TestHarness/Generated/AutoEquatable.generated.swift
+    # Generate TestHarness.AutoHashable
+    - sourcery Sources/TestHarness/Generating Templates/AutoHashable.swift.stencil Sources/TestHarness/Generated/AutoHashable.generated.swift
+    # Generate Taps.AutoEquatable
+    - sourcery Sources/Taps Templates/AutoEquatable.swift.stencil Sources/Taps/Generated/AutoEquatable.generated.swift
+    # Generate Taps.AutoHashable
+    - sourcery Sources/Taps Templates/AutoHashable.swift.stencil Sources/Taps/Generated/AutoHashable.generated.swift
+    # Generate AutoInit
+    - sourcery Sources/TestHarness/Generating Templates/AutoInit.swift.stencil Sources/TestHarness/Generated/AutoInit.generated.swift
+    # Generate LinuxMain
+    - ./Scripts/sourcery-linuxmain.sh
+  lint:
+    - swiftlint autocorrect
+    - swiftlint
+  watch:
+    - echo fswatch -o .build/debug/ --latency 3 --exclude .build/debug/*Tests.* | xargs -n1 -I{} swift test
+    # Generate TestHarness.AutoEquatable
+    - echo sourcery Sources/TestHarness/Generating Templates/AutoEquatable.swift.stencil Sources/TestHarness/Generated/AutoEquatable.generated.swift --watch
+    # Generate TestHarness.AutoHashable
+    - echo sourcery Sources/TestHarness/Generating Templates/AutoHashable.swift.stencil Sources/TestHarness/Generated/AutoHashable.generated.swift --watch
+    # Generate Taps.AutoEquatable
+    - echo sourcery Sources/Taps Templates/AutoEquatable.swift.stencil Sources/Taps/Generated/AutoEquatable.generated.swift --watch
+    # Generate Taps.AutoHashable
+    - echo sourcery Sources/Taps Templates/AutoHashable.swift.stencil Sources/Taps/Generated/AutoHashable.generated.swift --watch
+    # Generate AutoInit
+    - echo sourcery Sources/TestHarness/Generating Templates/AutoInit.swift.stencil Sources/TestHarness/Generated/AutoInit.generated.swift --watch
+    # Generate LinuxMain
+    - "echo sourcery Tests Templates/LinuxMain.swift.stencil Tests/LinuxMain.swift --args \"testimports=import TestHarnessTests
+import TapsTests\""
