@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.author       = { "Valentin Knabel" => "taps@vknabel.com" }
   s.social_media_url = "https://twitter.com/vknabel"
 
-  s.source           = { :git => 'https://github.com/vknabel/EasyInject.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/vknabel/Taps.git', :tag => s.version.to_s }
   s.source_files = 'Sources/Taps/*.swift'
 
   s.ios.deployment_target = '8.0'

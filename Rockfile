@@ -9,9 +9,9 @@ scripts:
     - git tag -a {{version}} -m {{version}}
     - git push --tags
     # Later: Release to CocoaPods
-    - open https://github.com/vknabel/Rock/releases/new?tag={{version}}
-    - bundle exec pod trunk push Taps.podspec --allow-warnings
+    - open https://github.com/vknabel/Taps/releases/new?tag={{version}}
     - bundle exec pod trunk push TestHarness.podspec --allow-warnings
+    - bundle exec pod trunk push Taps.podspec --allow-warnings
   prepare:
     - bundle install
     - rock install
