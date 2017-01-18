@@ -4,6 +4,14 @@ dependencies:
   - swiftlint@0.16.0
 version: 0.0.1
 scripts:
+  publish:
+    # Set git tag
+    - git tag -a {{version}} -m {{version}}
+    - git push --tags
+    # Later: Release to CocoaPods
+    - open https://github.com/vknabel/Rock/releases/new?tag={{version}}
+    - bundle exec pod trunk push Taps.podspec --allow-warnings
+    - bundle exec pod trunk push TestHarness.podspec --allow-warnings
   prepare:
     - bundle install
     - rock install
