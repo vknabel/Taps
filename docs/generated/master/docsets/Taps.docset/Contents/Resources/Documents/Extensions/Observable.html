@@ -20,7 +20,7 @@
         <a class="header-link" href="../index.html">
           Taps Docs
         </a>
-         (13% documented)
+         (100% documented)
       </p>
     
         <p class="header-col header-col--secondary">
@@ -51,13 +51,13 @@
             <a class="nav-group-name-link" href="../Guides.html">Guides</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../0-landing.html">0. Landing</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../1-getting-started.html">1. Getting Started</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../2-customizing-output.html">2. Customizing Output</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../index.html">index</a>
               </li>
             </ul>
           </li>
@@ -88,20 +88,6 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/Observable.html">Observable</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Functions.html">Functions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:F4Tapsoi2eeFTVS_14SourceLocationS0__Sb">==(_:_:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:F4Tapsoi2eeFTVS_9TestCountS0__Sb">==(_:_:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:F4Tapsoi2eeFTVS_9TestPointS0__Sb">==(_:_:)</a>
               </li>
             </ul>
           </li>
@@ -151,7 +137,71 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Inspects an observable for running <code><a href="../Structs/TestPoint.html">TestPoint</a></code>s.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter onNext: A tester for <code>.onNext</code> events.
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter onError: A tester for <code>.onError</code> events. Errors won&rsquo;t be catched.
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    A semantically equal observable.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">test</span><span class="p">(</span><span class="nv">onNext</span><span class="p">:</span> <span class="p">((</span><span class="kt">E</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?,</span> <span class="nv">onError</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onNext</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A tester for <code>.onNext</code> events.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onError</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A tester for <code>.onError</code> events. Errors won’t be catched.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A semantically equal observable.</p>
 
                       </div>
                     </section>

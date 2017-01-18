@@ -20,7 +20,7 @@
         <a class="header-link" href="../index.html">
           Taps Docs
         </a>
-         (13% documented)
+         (100% documented)
       </p>
     
         <p class="header-col header-col--secondary">
@@ -51,13 +51,13 @@
             <a class="nav-group-name-link" href="../Guides.html">Guides</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../0-landing.html">0. Landing</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../1-getting-started.html">1. Getting Started</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../2-customizing-output.html">2. Customizing Output</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../index.html">index</a>
               </li>
             </ul>
           </li>
@@ -92,20 +92,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Functions.html">Functions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:F4Tapsoi2eeFTVS_14SourceLocationS0__Sb">==(_:_:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:F4Tapsoi2eeFTVS_9TestCountS0__Sb">==(_:_:)</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:F4Tapsoi2eeFTVS_9TestPointS0__Sb">==(_:_:)</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -135,7 +121,8 @@
 
                 </div>
               </div>
-            <p>sourcery: auto-equatable</p>
+            <p>The output emitted by <code><a href="../Classes/Taps.html">Taps</a></code>.
+It can be translated into <code>TestOutput</code> using <code>TapsHarnessFromTest</code> or interpreted by <code><a href="../Structs/TapsHarness.html">TapsHarness</a></code>.</p>
 
           </div>
         </section>
@@ -157,14 +144,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p><code><a href="../Classes/Taps.html">Taps</a></code> will from now on execute <code><a href="../Classes/Test.html">Test</a></code>s and <code><a href="../Structs/TestPoint.html">TestPoint</a></code>s</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TapsOutput</span><span class="p">:</span> <span class="kt">Equatable</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">started</span></code></pre>
 
                         </div>
                       </div>
@@ -188,16 +175,61 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Marks the begin of a test case. See <code>Tape.test</code>.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter title: The title of the test case.
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter directive: The directive for the test case.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TapsOutput</span><span class="p">:</span> <span class="kt">Equatable</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">testCase</span><span class="p">(</span><span class="kt">String</span><span class="p">,</span> <span class="nv">directive</span><span class="p">:</span> <span class="kt">Directive</span><span class="p">?)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>title</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The title of the test case.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>directive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The directive for the test case.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -219,16 +251,80 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Emitted when a test has emitted a <code><a href="../Structs/TestPoint.html">TestPoint</a></code>.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter testPoint: The <code><a href="../Structs/TestPoint.html">TestPoint</a></code>.
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter count: All counts for passed and failed tests.
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter directive: The directive for the test point.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TapsOutput</span><span class="p">:</span> <span class="kt">Equatable</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">testPoint</span><span class="p">(</span><span class="kt"><a href="../Structs/TestPoint.html">TestPoint</a></span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt"><a href="../Structs/TestCount.html">TestCount</a></span><span class="p">,</span> <span class="nv">directive</span><span class="p">:</span> <span class="kt">Directive</span><span class="p">?)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>testPoint</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>TestPoint</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>count</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>All counts for passed and failed tests.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>directive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The directive for the test point.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -250,16 +346,42 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Emitted when all <code><a href="../Classes/Test.html">Test</a></code>s have been processed. This is the last <code>TapsOutput</code>.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter count: All counts for passed and failed tests.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TapsOutput</span><span class="p">:</span> <span class="kt">Equatable</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">finished</span><span class="p">(</span><span class="kt"><a href="../Structs/TestCount.html">TestCount</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>count</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>All counts for passed and failed tests.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -281,45 +403,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Emitted when a test has crashed and <code><a href="../Classes/Taps.html">Taps</a></code> cannot proceed.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter message: The reason for the bail out.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TapsOutput</span><span class="p">:</span> <span class="kt">Equatable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:ZFPs9Equatableoi2eeFTxx_Sb"></a>
-                    <a name="//apple_ref/swift/Method/==(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFPs9Equatableoi2eeFTxx_Sb">==(_:_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>sourcery: auto-equatable</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="o">==</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">TapsOutput</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">TapsOutput</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">bailOut</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -330,25 +427,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>lhs</em>
+                                <em>message</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>A value to compare.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>rhs</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Another value to compare.</p>
+                                  <p>The reason for the bail out.</p>
 
                                 </div>
                               </td>

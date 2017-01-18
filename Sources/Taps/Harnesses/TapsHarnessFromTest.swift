@@ -1,6 +1,9 @@
 import TestHarness
 
 public extension TapsHarness {
+  /// Converts a `TestHarness` into a `TapsHarness`.
+  ///
+  /// - Parameter harness: A `TestHarness` shall support the `TapsOutput`.
   public static func tapsHarnessFrom(test harness: TestHarness) -> TapsHarness {
     let report = harness.handler
     return TapsHarness { data in

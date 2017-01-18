@@ -17,8 +17,10 @@ fileprivate func combineHashes(_ hashes: Int...) -> Int {
 // MARK: - AutoHashable for classes, protocols, structs
 
 // MARK: - SourceLocation AutoHashable
+/// :nodoc:
 extension SourceLocation: Hashable {
     
+    /// :nodoc:
     public var hashValue: Int {
         return combineHashes(file.hashValue, line.hashValue, column.hashValue, function.hashValue, 0)
     }

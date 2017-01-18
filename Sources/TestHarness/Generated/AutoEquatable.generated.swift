@@ -27,8 +27,10 @@ fileprivate func compareArrays<T>(lhs: [T], rhs: [T], compare: (_ lhs: T, _ rhs:
 // MARK: - AutoEquatable for classes, protocols, structs
 
 // MARK: - Directive AutoEquatable
+/// :nodoc:
 extension Directive: Equatable {} 
 
+/// :nodoc:
 public func == (lhs: Directive, rhs: Directive) -> Bool {
     guard lhs.kind == rhs.kind else { return false }
     guard compareOptionals(lhs: lhs.message, rhs: rhs.message, compare: ==) else { return false }
@@ -44,7 +46,9 @@ public func == (lhs: Directive, rhs: Directive) -> Bool {
 // MARK: - AutoEquatable for Enums
 
 // MARK: - Directive.Kind AutoEquatable
+/// :nodoc:
 extension Directive.Kind: Equatable {}
+/// :nodoc:
 public func == (lhs: Directive.Kind, rhs: Directive.Kind) -> Bool {
     switch (lhs, rhs) {
         
@@ -61,7 +65,9 @@ public func == (lhs: Directive.Kind, rhs: Directive.Kind) -> Bool {
 }
 
 // MARK: - TestOutput AutoEquatable
+/// :nodoc:
 extension TestOutput: Equatable {}
+/// :nodoc:
 public func == (lhs: TestOutput, rhs: TestOutput) -> Bool {
     switch (lhs, rhs) {
         
