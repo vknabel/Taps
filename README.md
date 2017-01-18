@@ -17,7 +17,7 @@ Currently it is under development.
 ## Example
 
 ```swift
-func testExamples(t: Taps) {
+func describeReadmeExamples(t: Taps) {
   t.test("asynchronous test") { t in
     async {
       t.pass()
@@ -26,21 +26,21 @@ func testExamples(t: Taps) {
   }
 
   t.test("synchronous test", plan: 1) { t in
-    t.equal(someInt(), 1) // only
+    t.equal(someInt(), 1)
   }
 
-  t.rx.test("reactive test") { t in
+  t.rx.test("reactive test") { (t: Test) -> Observable<Int> in
     let myService = MyService()
     return myService.someObservable()
       .test(
-        onNext: t.equal(to: 3),
-        onError: t.fail("should not throw")
+        onNext: t.equal(to: 3, "should only emit 3"),
+        onError: t.fail(with: "should not throw")
       )
   }
 }
 
-Taps.run(tests: [
-  testExamples
+Taps.runMain(tests: [
+  describeReadmeExamples
 ])
 ```
 
