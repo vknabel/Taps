@@ -6,7 +6,11 @@
 ![Plaforms](https://img.shields.io/badge/Platform-Linux|macOS|iOS|tvOS|watchOS-lightgrey.svg?style=flat-square)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/vknabel/rock/master/LICENSE)
 
-Taps is a lightweight Unit Test library optimized for asynchronous code and generating [TAP13](https://testanything.org/tap-version-13-specification.html) compatible output.
+Taps is a lightweight Unit Test library optimized for asynchronous code.
+it has been implemented using RxSwift and therefore you can easily test your own Observables with ease.
+
+As the generated output is [TAP13](https://testanything.org/tap-version-13-specification.html) compatible, you can easily customize it yourself.
+You can either use Taps integrated TapsHarness or you can use the pod TestHarness to customize the output.
 
 Currently it is under development.
 
