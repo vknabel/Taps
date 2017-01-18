@@ -17,17 +17,17 @@ Pod::Spec.new do |s|
   s.social_media_url = "https://twitter.com/vknabel"
 
   s.source       = { :git => 'https://github.com/vknabel/Taps.git', :tag => s.version.to_s }
-  s.source_files = 'Sources/Taps/*.swift'
+  s.source_files = 'Sources/Taps/**/*.swift'
 
   s.ios.deployment_target = '8.0'
-  s.osx.deployment_target = '10.9'
+  s.osx.deployment_target = '10.10'
 	s.watchos.deployment_target = "2.0"
   s.tvos.deployment_target = "9.0"
   s.pod_target_xcconfig =  {
     'SWIFT_VERSION' => '3.0',
   }
 
-  s.dependency 'RxSwift'
-  s.dependency 'RxBlocking'
-  s.dependency 'TestHarness'
+  s.dependency 'RxSwift', '~>3.0'
+  s.dependency 'RxBlocking', '~>3.0'
+  s.dependency 'TestHarness', '0.0.1'
 end

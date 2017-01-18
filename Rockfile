@@ -10,8 +10,8 @@ scripts:
     - git push --tags
     # Later: Release to CocoaPods
     - open https://github.com/vknabel/Taps/releases/new?tag={{version}}
-    - bundle exec pod trunk push TestHarness.podspec --allow-warnings
-    - bundle exec pod trunk push Taps.podspec --allow-warnings
+    - bundle exec pod trunk push TestHarness.podspec --allow-warnings --swift-version=3.0
+    - bundle exec pod trunk push Taps.podspec --allow-warnings --swift-version=3.0
   prepare:
     - bundle install
     - rock install
