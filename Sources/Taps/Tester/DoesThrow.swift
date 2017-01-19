@@ -60,7 +60,7 @@ public extension Test {
     line: Int = #line,
     column: Int = #column,
     function: String = #function,
-    test: @autoclosure () throws -> T
+    test: () throws -> T
   ) {
     let location = SourceLocation(file: file, line: line, column: column, function: function)
     report.onNext(assertDoesThrow(message, source: location, test: test))
@@ -86,7 +86,7 @@ public extension Test {
     line: Int = #line,
     column: Int = #column,
     function: String = #function,
-    test: @autoclosure () throws -> T
+    test: () throws -> T
   ) {
     let location = SourceLocation(file: file, line: line, column: column, function: function)
     report.onNext(assertDoesThrow(of: E.self, message, source: location, test: test))
