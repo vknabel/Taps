@@ -1,5 +1,6 @@
 machine:
-  services: docker
+  services:
+    - docker
 
 dependencies:
   override: docker build -t myapp .
