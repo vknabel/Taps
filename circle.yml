@@ -3,7 +3,9 @@ machine:
     - docker
 
 dependencies:
-  override: docker build -t myapp .
+  override:
+    - docker build -t Taps .
 
 test:
-  override: docker run myapp swift test
+  override:
+    - docker run Taps swift test
