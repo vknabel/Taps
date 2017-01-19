@@ -4,8 +4,8 @@ machine:
 
 dependencies:
   override:
-    - docker build -t Taps .
+    - docker build -t taps .
 
 test:
   override:
-    - docker run Taps swift test
+    - docker run taps swift test
