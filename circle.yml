@@ -5,7 +5,10 @@ machine:
 dependencies:
   override:
     - docker build -t taps .
+    - bundle install
 
 test:
   override:
     - docker run taps swift test
+  post:
+    - bundle exec danger
