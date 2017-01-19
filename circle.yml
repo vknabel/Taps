@@ -1,0 +1,8 @@
+machine:
+  services: docker
+
+dependencies:
+  override: docker build -t myapp .
+
+test:
+  override: docker run myapp swift test
