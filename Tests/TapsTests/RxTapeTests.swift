@@ -36,7 +36,7 @@ public class TapsTests: XCTestCase {
         XCTAssertEqual(reports.first!, TapsOutput.started, "First report must be .started")
         expectation.fulfill()
       },
-      tests: withoutTests()
+      testing: withoutTests()
     )
     waitForExpectations(timeout: 0.1)
   }
@@ -49,7 +49,7 @@ public class TapsTests: XCTestCase {
         XCTAssertEqual(reports.first!, TapsOutput.started, "First report must be .started")
         expectation.fulfill()
       },
-      tests: withOneTest()
+      testing: withOneTest()
     )
     waitForExpectations(timeout: 0.1)
   }
@@ -62,17 +62,22 @@ public class TapsTests: XCTestCase {
         XCTAssertEqual(reports.first!, TapsOutput.started, "First report must be .started")
         expectation.fulfill()
       },
-      tests: withManyTests()
+      testing: withManyTests()
     )
     waitForExpectations(timeout: 0.1)
   }
 
   public func testNaive() {
-    _ = Taps.runMain(tests: [
-      describeTestEnd,
-      describeTestDoesNotThrow,
-      describeTestDoesThrow
-    ])
+    do {
+      let counts = try Taps.runner(testing: [
+        describeTestEnd,
+        describeTestDoesNotThrow,
+        describeTestDoesThrow
+      ]).toBlocking().single()
+      XCTAssertEqual(counts?.failures, 0, "Naive tests have failed")
+    } catch {
+      XCTFail("Taps.runner.toBlocking.single failed with \(error)")
+    }
   }
 
   public func testReadmeExamplesStart() {
@@ -83,7 +88,7 @@ public class TapsTests: XCTestCase {
         XCTAssertEqual(reports.first!, TapsOutput.started, "First report must be .started")
         expectation.fulfill()
       },
-      tests: [describeReadmeExamples]
+      testing: [describeReadmeExamples]
     )
     waitForExpectations(timeout: 0.1)
   }
@@ -101,7 +106,7 @@ public class TapsTests: XCTestCase {
         )
         expectation.fulfill()
       },
-      tests: [describeReadmeExamples]
+      testing: [describeReadmeExamples]
     )
     waitForExpectations(timeout: 0.1)
   }
@@ -115,7 +120,7 @@ public class TapsTests: XCTestCase {
         XCTAssertTrue(called, "must only finish once")
         expectation.fulfill()
       },
-      tests: [describeReadmeExamples]
+      testing: [describeReadmeExamples]
     )
     waitForExpectations(timeout: 0.1)
   }
@@ -137,7 +142,7 @@ public class TapsTests: XCTestCase {
         }
         expectation.fulfill()
       },
-      tests: [describeReadmeExamples]
+      testing: [describeReadmeExamples]
     )
     waitForExpectations(timeout: 200)
   }
@@ -159,7 +164,7 @@ public class TapsTests: XCTestCase {
         }
         expectation.fulfill()
       },
-      tests: [describeReadmeExamples]
+      testing: [describeReadmeExamples]
     )
     waitForExpectations(timeout: 0.1)
   }
@@ -203,7 +208,7 @@ public class TapsTests: XCTestCase {
         }
         expectation.fulfill()
       },
-      tests: [describeReadmeExamples]
+      testing: [describeReadmeExamples]
     )
     waitForExpectations(timeout: 0.1)
   }

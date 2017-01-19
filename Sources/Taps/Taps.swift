@@ -57,7 +57,9 @@ public final class Taps {
     self.harness = harness ?? .printHarness
   }
 
-  private var runner: Observable<TestCount> {
+  /// Returns an observable running all tests.
+  /// Only emits one single or an error.
+  public var runner: Observable<TestCount> {
     let report = self.harness.report
     return self.testCases
       .observeOn(tapsScheduler)
@@ -142,13 +144,18 @@ public final class Taps {
     )
   }
 
-  /// Creates a hot `Taps`, that executes all given `Test`s.
-  /// All tests will be interrupted on dispose.
+  /// Creates a cold `Taps`, that executes all given `Test`s.
   /// Uses the print harness `TapHarness.printHarness`.
   ///
+  /// - Parameter harness: The harness, that interprets the output.
   /// - Parameter tests: All tests to be executed.
-  public static func start(tests: [(Taps) -> Void]) -> Disposable {
-    let taps = Taps()
+  public static func with(_ harness: TapsHarness? = nil, tests: [(Taps) -> Void]) -> Taps {
+    let taps: Taps
+    if let harness = harness {
+      taps = Taps(harness: harness)
+    } else {
+      taps = Taps()
+    }
 
     taps.harness.report(.started)
     for test in tests {
@@ -156,7 +163,19 @@ public final class Taps {
     }
     taps.testCases.onCompleted()
 
-    return taps.start()
+    return taps
+  }
+
+  /// Creates a cold `Observable`, that executes all given `Test`s.
+  /// Uses the print harness `TapHarness.printHarness`.
+  ///
+  /// - Parameter harness: The harness, that interprets the output.
+  /// - Parameter tests: All tests to be executed.
+  public static func runner(
+    with harness: TapsHarness? = nil,
+    testing tests: [(Taps) -> Void]
+  ) -> Observable<TestCount> {
+    return with(harness, tests: tests).runner
   }
 
   /// Creates a hot `Taps`, that executes all given `Test`s.
@@ -164,69 +183,8 @@ public final class Taps {
   ///
   /// - Parameter harness: The harness, that interprets the output.
   /// - Parameter tests: All tests to be executed.
-  public static func start(with harness: TapsHarness, tests: [(Taps) -> Void]) -> Disposable {
-    let taps = Taps(harness: harness)
-
-    taps.harness.report(.started)
-    for test in tests {
-      test(taps)
-    }
-    taps.testCases.onCompleted()
-
-    return taps.start()
-  }
-
-  /// Creates a hot `Taps`, that executes all given `Test`s.
-  /// All tests will be interrupted when `Taps` gets deinitialized.
-  /// Uses the print harness `TapHarness.printHarness`.
-  ///
-  /// - Parameter tests: All tests to be executed.
-  public static func run(tests: [(Taps) -> Void]) -> Taps {
-    let taps = Taps()
-
-    taps.harness.report(.started)
-    for test in tests {
-      test(taps)
-    }
-    taps.testCases.onCompleted()
-
-    taps.run()
-    return taps
-  }
-
-  /// Creates a hot `Taps`, that executes all given `Test`s.
-  /// All tests will be interrupted when `Taps` gets deinitialized.
-  ///
-  /// - Parameter harness: The harness, that interprets the output.
-  /// - Parameter tests: All tests to be executed.
-  public static func run(with harness: TapsHarness, tests: [(Taps) -> Void]) -> Taps {
-    let taps = Taps(harness: harness)
-
-    taps.harness.report(.started)
-    for test in tests {
-      test(taps)
-    }
-    taps.testCases.onCompleted()
-
-    taps.run()
-    return taps
-  }
-
-  /// Creates a hot `Taps`, that executes all given `Test`s.
-  /// All tests will be executed. Exits with 1 if there were errors.
-  /// Uses the print harness `TapHarness.printHarness`.
-  ///
-  /// - Parameter tests: All tests to be executed.
-  public static func runMain(tests: [(Taps) -> Void]) -> Never {
-    let taps = Taps()
-
-    taps.harness.report(.started)
-    for test in tests {
-      test(taps)
-    }
-    taps.testCases.onCompleted()
-
-    taps.runMain()
+  public static func start(with harness: TapsHarness? = nil, testing tests: [(Taps) -> Void]) -> Disposable {
+    return with(harness, tests: tests).start()
   }
 
   /// Creates a hot `Taps`, that executes all given `Test`s.
@@ -235,15 +193,18 @@ public final class Taps {
   ///
   /// - Parameter harness: The harness, that interprets the output.
   /// - Parameter tests: All tests to be executed.
-  public static func runMain(with harness: TapsHarness, tests: [(Taps) -> Void]) -> Never {
-    let taps = Taps(harness: harness)
+  public static func runMain(with harness: TapsHarness? = nil, testing tests: [(Taps) -> Void]) -> Never {
+    return with(harness, tests: tests).runMain()
+  }
 
-    taps.harness.report(.started)
-    for test in tests {
-      test(taps)
-    }
-    taps.testCases.onCompleted()
-
-    taps.runMain()
+  /// Creates a hot `Taps`, that executes all given `Test`s.
+  /// All tests will be interrupted when `Taps` gets deinitialized.
+  ///
+  /// - Parameter harness: The harness, that interprets the output.
+  /// - Parameter tests: All tests to be executed.
+  public static func run(with harness: TapsHarness? = nil, testing tests: [(Taps) -> Void]) -> Taps {
+    let taps = with(harness, tests: tests)
+    taps.run()
+    return taps
   }
 }
