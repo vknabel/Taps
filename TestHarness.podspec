@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "TestHarness"
-  s.version      = "0.0.1"
+  s.version      = "0.1.0"
   s.summary      = "TestHarness serves a datastructure for TAP13 compatible output."
 
   s.description  = <<-DESC

@@ -206,9 +206,37 @@ that won&rsquo;t start running <code><a href="../Classes/Test.html">Test</a></co
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC4Taps4Taps5startERR"></a>
+                    <a name="/s:vC4Taps4Taps6runnerGC7RxSwift10ObservableVS_9TestCount_"></a>
+                    <a name="//apple_ref/swift/Property/runner" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC4Taps4Taps6runnerGC7RxSwift10ObservableVS_9TestCount_">runner</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an observable running all tests.
+Only emits one single or an error.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">runner</span><span class="p">:</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/TestCount.html">TestCount</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Taps4Taps5startFT_P7RxSwift10Disposable_"></a>
                     <a name="//apple_ref/swift/Method/start()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC4Taps4Taps5startERR">start()</a>
+                    <a class="token" href="#/s:FC4Taps4Taps5startFT_P7RxSwift10Disposable_">start()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -291,9 +319,9 @@ Exits with 1 if there were errors.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC4Taps4Taps5startERR"></a>
-                    <a name="//apple_ref/swift/Method/start(tests:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC4Taps4Taps5startERR">start(tests:)</a>
+                    <a name="/s:ZFC4Taps4Taps4withFTGSqVS_11TapsHarness_5testsGSaFS0_T___S0_"></a>
+                    <a name="//apple_ref/swift/Method/with(_:tests:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC4Taps4Taps4withFTGSqVS_11TapsHarness_5testsGSaFS0_T___S0_">with(_:tests:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -301,9 +329,14 @@ Exits with 1 if there were errors.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a hot <code>Taps</code>, that executes all given <code><a href="../Classes/Test.html">Test</a></code>s.
-All tests will be interrupted on dispose.
+                        <p>Creates a cold <code>Taps</code>, that executes all given <code><a href="../Classes/Test.html">Test</a></code>s.
 Uses the print harness <code>TapHarness.printHarness</code>.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter harness: The harness, that interprets the output.
+
+</div>
 
 <div class="aside aside-parameter">
     <p class="aside-title">Parameter</p>
@@ -316,7 +349,7 @@ Uses the print harness <code>TapHarness.printHarness</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">start</span><span class="p">(</span><span class="nv">tests</span><span class="p">:</span> <span class="p">[(</span><span class="kt">Taps</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Disposable</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">with</span><span class="p">(</span><span class="n">_</span> <span class="nv">harness</span><span class="p">:</span> <span class="kt"><a href="../Structs/TapsHarness.html">TapsHarness</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">tests</span><span class="p">:</span> <span class="p">[(</span><span class="kt">Taps</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Taps</span></code></pre>
 
                         </div>
                       </div>
@@ -324,6 +357,19 @@ Uses the print harness <code>TapHarness.printHarness</code>.</p>
                         <h4>Parameters</h4>
                         <table class="graybox">
                           <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>harness</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The harness, that interprets the output.</p>
+
+                                </div>
+                              </td>
+                            </tr>
                             <tr>
                               <td>
                                 <code>
@@ -346,9 +392,85 @@ Uses the print harness <code>TapHarness.printHarness</code>.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC4Taps4Taps5startERR"></a>
-                    <a name="//apple_ref/swift/Method/start(with:tests:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC4Taps4Taps5startERR">start(with:tests:)</a>
+                    <a name="/s:ZFC4Taps4Taps6runnerFT4withGSqVS_11TapsHarness_7testingGSaFS0_T___GC7RxSwift10ObservableVS_9TestCount_"></a>
+                    <a name="//apple_ref/swift/Method/runner(with:testing:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC4Taps4Taps6runnerFT4withGSqVS_11TapsHarness_7testingGSaFS0_T___GC7RxSwift10ObservableVS_9TestCount_">runner(with:testing:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a cold <code>Observable</code>, that executes all given <code><a href="../Classes/Test.html">Test</a></code>s.
+Uses the print harness <code>TapHarness.printHarness</code>.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter harness: The harness, that interprets the output.
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter tests: All tests to be executed.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">runner</span><span class="p">(</span>
+    <span class="n">with</span> <span class="nv">harness</span><span class="p">:</span> <span class="kt"><a href="../Structs/TapsHarness.html">TapsHarness</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="n">testing</span> <span class="nv">tests</span><span class="p">:</span> <span class="p">[(</span><span class="kt">Taps</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">]</span>
+  <span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Structs/TestCount.html">TestCount</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>harness</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The harness, that interprets the output.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tests</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>All tests to be executed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC4Taps4Taps5startFT4withGSqVS_11TapsHarness_7testingGSaFS0_T___P7RxSwift10Disposable_"></a>
+                    <a name="//apple_ref/swift/Method/start(with:testing:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC4Taps4Taps5startFT4withGSqVS_11TapsHarness_7testingGSaFS0_T___P7RxSwift10Disposable_">start(with:testing:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -376,7 +498,7 @@ All tests will be interrupted on dispose.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">start</span><span class="p">(</span><span class="n">with</span> <span class="nv">harness</span><span class="p">:</span> <span class="kt"><a href="../Structs/TapsHarness.html">TapsHarness</a></span><span class="p">,</span> <span class="nv">tests</span><span class="p">:</span> <span class="p">[(</span><span class="kt">Taps</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Disposable</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">start</span><span class="p">(</span><span class="n">with</span> <span class="nv">harness</span><span class="p">:</span> <span class="kt"><a href="../Structs/TapsHarness.html">TapsHarness</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">testing</span> <span class="nv">tests</span><span class="p">:</span> <span class="p">[(</span><span class="kt">Taps</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Disposable</span></code></pre>
 
                         </div>
                       </div>
@@ -419,9 +541,9 @@ All tests will be interrupted on dispose.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC4Taps4Taps3runFT5testsGSaFS0_T___S0_"></a>
-                    <a name="//apple_ref/swift/Method/run(tests:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC4Taps4Taps3runFT5testsGSaFS0_T___S0_">run(tests:)</a>
+                    <a name="/s:ZFC4Taps4Taps7runMainFT4withGSqVS_11TapsHarness_7testingGSaFS0_T___Os5Never"></a>
+                    <a name="//apple_ref/swift/Method/runMain(with:testing:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC4Taps4Taps7runMainFT4withGSqVS_11TapsHarness_7testingGSaFS0_T___Os5Never">runMain(with:testing:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -430,61 +552,7 @@ All tests will be interrupted on dispose.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates a hot <code>Taps</code>, that executes all given <code><a href="../Classes/Test.html">Test</a></code>s.
-All tests will be interrupted when <code>Taps</code> gets deinitialized.
-Uses the print harness <code>TapHarness.printHarness</code>.</p>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter tests: All tests to be executed.
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">run</span><span class="p">(</span><span class="nv">tests</span><span class="p">:</span> <span class="p">[(</span><span class="kt">Taps</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Taps</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>tests</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>All tests to be executed.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:ZFC4Taps4Taps3runFT4withVS_11TapsHarness5testsGSaFS0_T___S0_"></a>
-                    <a name="//apple_ref/swift/Method/run(with:tests:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC4Taps4Taps3runFT4withVS_11TapsHarness5testsGSaFS0_T___S0_">run(with:tests:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Creates a hot <code>Taps</code>, that executes all given <code><a href="../Classes/Test.html">Test</a></code>s.
+All tests will be executed. Exits with 1 if there were errors.
 All tests will be interrupted when <code>Taps</code> gets deinitialized.</p>
 
 <div class="aside aside-parameter">
@@ -504,7 +572,7 @@ All tests will be interrupted when <code>Taps</code> gets deinitialized.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">run</span><span class="p">(</span><span class="n">with</span> <span class="nv">harness</span><span class="p">:</span> <span class="kt"><a href="../Structs/TapsHarness.html">TapsHarness</a></span><span class="p">,</span> <span class="nv">tests</span><span class="p">:</span> <span class="p">[(</span><span class="kt">Taps</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Taps</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">runMain</span><span class="p">(</span><span class="n">with</span> <span class="nv">harness</span><span class="p">:</span> <span class="kt"><a href="../Structs/TapsHarness.html">TapsHarness</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">testing</span> <span class="nv">tests</span><span class="p">:</span> <span class="p">[(</span><span class="kt">Taps</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Never</span></code></pre>
 
                         </div>
                       </div>
@@ -547,9 +615,9 @@ All tests will be interrupted when <code>Taps</code> gets deinitialized.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC4Taps4Taps7runMainFT5testsGSaFS0_T___Os5Never"></a>
-                    <a name="//apple_ref/swift/Method/runMain(tests:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC4Taps4Taps7runMainFT5testsGSaFS0_T___Os5Never">runMain(tests:)</a>
+                    <a name="/s:ZFC4Taps4Taps3runFT4withGSqVS_11TapsHarness_7testingGSaFS0_T___S0_"></a>
+                    <a name="//apple_ref/swift/Method/run(with:testing:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC4Taps4Taps3runFT4withGSqVS_11TapsHarness_7testingGSaFS0_T___S0_">run(with:testing:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -558,62 +626,6 @@ All tests will be interrupted when <code>Taps</code> gets deinitialized.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates a hot <code>Taps</code>, that executes all given <code><a href="../Classes/Test.html">Test</a></code>s.
-All tests will be executed. Exits with 1 if there were errors.
-Uses the print harness <code>TapHarness.printHarness</code>.</p>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter tests: All tests to be executed.
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">runMain</span><span class="p">(</span><span class="nv">tests</span><span class="p">:</span> <span class="p">[(</span><span class="kt">Taps</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Never</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>tests</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>All tests to be executed.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:ZFC4Taps4Taps7runMainFT4withVS_11TapsHarness5testsGSaFS0_T___Os5Never"></a>
-                    <a name="//apple_ref/swift/Method/runMain(with:tests:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC4Taps4Taps7runMainFT4withVS_11TapsHarness5testsGSaFS0_T___Os5Never">runMain(with:tests:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Creates a hot <code>Taps</code>, that executes all given <code><a href="../Classes/Test.html">Test</a></code>s.
-All tests will be executed. Exits with 1 if there were errors.
 All tests will be interrupted when <code>Taps</code> gets deinitialized.</p>
 
 <div class="aside aside-parameter">
@@ -633,7 +645,7 @@ All tests will be interrupted when <code>Taps</code> gets deinitialized.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">runMain</span><span class="p">(</span><span class="n">with</span> <span class="nv">harness</span><span class="p">:</span> <span class="kt"><a href="../Structs/TapsHarness.html">TapsHarness</a></span><span class="p">,</span> <span class="nv">tests</span><span class="p">:</span> <span class="p">[(</span><span class="kt">Taps</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Never</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">run</span><span class="p">(</span><span class="n">with</span> <span class="nv">harness</span><span class="p">:</span> <span class="kt"><a href="../Structs/TapsHarness.html">TapsHarness</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">testing</span> <span class="nv">tests</span><span class="p">:</span> <span class="p">[(</span><span class="kt">Taps</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Taps</span></code></pre>
 
                         </div>
                       </div>
@@ -711,9 +723,9 @@ All tests will be interrupted when <code>Taps</code> gets deinitialized.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC4Taps4Taps4testERR"></a>
+                    <a name="/s:FC4Taps4Taps4testFTGSqSS_4planGSqSi_9directiveGSqV11TestHarness9Directive_4fileSS4lineSi6columnSi8functionSS7timeoutGSqSd_9schedulerGSqP7RxSwift13SchedulerType__4withFzCS_4TestT__T_"></a>
                     <a name="//apple_ref/swift/Method/test(_:plan:directive:file:line:column:function:timeout:scheduler:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC4Taps4Taps4testERR">test(_:plan:directive:file:line:column:function:timeout:scheduler:with:)</a>
+                    <a class="token" href="#/s:FC4Taps4Taps4testFTGSqSS_4planGSqSi_9directiveGSqV11TestHarness9Directive_4fileSS4lineSi6columnSi8functionSS7timeoutGSqSd_9schedulerGSqP7RxSwift13SchedulerType__4withFzCS_4TestT__T_">test(_:plan:directive:file:line:column:function:timeout:scheduler:with:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -876,7 +888,7 @@ Will automatically call <code>TestPoint.end</code> if all planned tests have bee
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2017-01-18)</p>
+      <p>&copy; 2017 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2017-01-19)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

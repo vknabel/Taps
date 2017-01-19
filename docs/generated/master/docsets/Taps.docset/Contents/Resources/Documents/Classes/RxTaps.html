@@ -164,9 +164,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC4Taps6RxTaps4testERR"></a>
-                    <a name="//apple_ref/swift/Method/test(_:directive:source:timeout:scheduler:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC4Taps6RxTaps4testERR">test(_:directive:source:timeout:scheduler:with:)</a>
+                    <a name="/s:FC4Taps6RxTaps13assertionTestFTGSqSS_9directiveGSqV11TestHarness9Directive_6sourceVS_14SourceLocation7timeoutGSqSd_9schedulerGSqP7RxSwift13SchedulerType__4withFT_GCS4_10ObservableVS_9TestPoint__T_"></a>
+                    <a name="//apple_ref/swift/Method/assertionTest(_:directive:source:timeout:scheduler:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Taps6RxTaps13assertionTestFTGSqSS_9directiveGSqV11TestHarness9Directive_6sourceVS_14SourceLocation7timeoutGSqSd_9schedulerGSqP7RxSwift13SchedulerType__4withFT_GCS4_10ObservableVS_9TestPoint__T_">assertionTest(_:directive:source:timeout:scheduler:with:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -219,7 +219,7 @@ Use it only for creating your own tester functions.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">test</span><span class="p">(</span>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">assertionTest</span><span class="p">(</span>
     <span class="n">_</span> <span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
     <span class="nv">directive</span><span class="p">:</span> <span class="kt">Directive</span><span class="p">?,</span>
     <span class="n">source</span> <span class="nv">location</span><span class="p">:</span> <span class="kt"><a href="../Structs/SourceLocation.html">SourceLocation</a></span><span class="p">,</span>
@@ -325,9 +325,145 @@ Use it only for creating your own tester functions.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC4Taps6RxTaps4testERR"></a>
+                    <a name="/s:FC4Taps6RxTaps11genericTesturFTGSqSS_9directiveGSqV11TestHarness9Directive_6sourceVS_14SourceLocation7timeoutGSqSd_9schedulerGSqP7RxSwift13SchedulerType__4withFCS_4TestGCS4_10Observablex__T_"></a>
+                    <a name="//apple_ref/swift/Method/genericTest(_:directive:source:timeout:scheduler:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC4Taps6RxTaps11genericTesturFTGSqSS_9directiveGSqV11TestHarness9Directive_6sourceVS_14SourceLocation7timeoutGSqSd_9schedulerGSqP7RxSwift13SchedulerType__4withFCS_4TestGCS4_10Observablex__T_">genericTest(_:directive:source:timeout:scheduler:with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A tester for common observables that will complete.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter test: The name of the test.
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter directive: The <code>Directive</code> that shall be applied. If <code><a href="../Structs/TestPoint.html">TestPoint</a></code>s fail, they won&rsquo;t break the build.
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter timeout: The interval defining the maximum duration the test may need.
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter scheduler: The scheduler for the test. Visit RxSwift for more info.
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter observable: An <code>Observable</code> that runs your tests.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">genericTest</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">directive</span><span class="p">:</span> <span class="kt">Directive</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="n">source</span> <span class="nv">location</span><span class="p">:</span> <span class="kt"><a href="../Structs/SourceLocation.html">SourceLocation</a></span><span class="p">,</span>
+    <span class="n">timeout</span> <span class="nv">interval</span><span class="p">:</span> <span class="kt">RxTimeInterval</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">scheduler</span><span class="p">:</span> <span class="kt">SchedulerType</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="n">with</span> <span class="nv">observable</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/Test.html">Test</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span>
+  <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>test</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the test.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>directive</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>Directive</code> that shall be applied. If <code>TestPoint</code>s fail, they won’t break the build.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>timeout</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The interval defining the maximum duration the test may need.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>scheduler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The scheduler for the test. Visit RxSwift for more info.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>observable</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An <code>Observable</code> that runs your tests.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC4Taps6RxTaps4testurFTGSqSS_9directiveGSqV11TestHarness9Directive_4fileSS4lineSi6columnSi8functionSS7timeoutGSqSd_9schedulerGSqP7RxSwift13SchedulerType__4withFCS_4TestGCS3_10Observablex__T_"></a>
                     <a name="//apple_ref/swift/Method/test(_:directive:file:line:column:function:timeout:scheduler:with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC4Taps6RxTaps4testERR">test(_:directive:file:line:column:function:timeout:scheduler:with:)</a>
+                    <a class="token" href="#/s:FC4Taps6RxTaps4testurFTGSqSS_9directiveGSqV11TestHarness9Directive_4fileSS4lineSi6columnSi8functionSS7timeoutGSqSd_9schedulerGSqP7RxSwift13SchedulerType__4withFCS_4TestGCS3_10Observablex__T_">test(_:directive:file:line:column:function:timeout:scheduler:with:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -469,7 +605,7 @@ Use it only for creating your own tester functions.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2017-01-18)</p>
+      <p>&copy; 2017 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2017-01-19)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
