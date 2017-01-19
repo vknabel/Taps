@@ -68,26 +68,11 @@ public class TapsTests: XCTestCase {
   }
 
   public func testNaive() {
-    /*let harness = testHarness { data in
-      switch data {
-      case .started:
-        print("TAP version 13")
-      case let .test(title):
-        print("#", title)
-      case let .ok(i, label):
-        print("ok \(i) \(label)")
-      case let .notOk(i, label, details):
-        print("not ok \(i) \(label)\n  ---\n  \(details)\n  ...\n")
-      case let .summary(tests, passed, failed):
-        print("1..\(tests)")
-        print("# tests", tests)
-        print("# pass", passed)
-        print("# fail", failed)
-      }
-    }
-    _ = Taps.run(tests: [
-      tapsTestUsingTaps
-    ])*/
+    _ = Taps.runMain(tests: [
+      describeTestEnd,
+      describeTestDoesNotThrow,
+      describeTestDoesThrow
+    ])
   }
 
   public func testReadmeExamplesStart() {
