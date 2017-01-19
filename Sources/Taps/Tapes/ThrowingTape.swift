@@ -24,7 +24,7 @@ public extension Taps {
     with tests: @escaping (Test) throws -> Void
   ) {
     let location = SourceLocation(file: file, line: line, column: column, function: function)
-    rx.test(
+    rx.assertionTest(
       title,
       directive: directive,
       source: location,

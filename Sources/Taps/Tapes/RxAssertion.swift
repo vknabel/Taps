@@ -12,7 +12,7 @@ public extension RxTaps {
   /// - Parameter timeout: The interval defining the maximum duration the test may need.
   /// - Parameter scheduler: The scheduler for the test. Visit RxSwift for more info.
   /// - Parameter observable: An `Observable` of your `TestPoint`s.
-  public func test(
+  public func assertionTest(
     _ title: String?,
     directive: Directive?,
     source location: SourceLocation,

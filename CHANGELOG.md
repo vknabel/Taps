@@ -10,6 +10,13 @@
 - `Test.notOk(_:message:)` has been renamed to `Test.notOk(_:_:)` for `Optional<T>` and `Bool`
 - `Test.ok(_:message:)` has been renamed to `Test.ok(_:_:)` for `Optional<T>` and `Bool`
 - `Test.pass(message:)` has been renamed to `Test.pass(_:)`
+- `RxTaps.test(_directive:source:timeout:scheduler:with:` for `Observable<TestPoint>` has been renamed to `assertionTest`
+- All variations of `Test.doesNotThrow` take a real closure instead of an `@autoclosure`
+- All variations of `Test.doesThrow` take a real closure instead of an `@autoclosure`
+- `Observable.test(onNext:onError:onCompleted:)` now catches and `onError:` is non optional. Introduces non-catching `Observable.test(onNext:onCompleted:)`.
+- Combined and renamed variations of `Taps.start` to `Taps.start(with:testing:)`
+- Combined and renamed variations of `Taps.run` to `Taps.run(with:testing:)`
+- Combined and renamed variations of `Taps.runMain` to `Taps.runMain(with:testing:)`
 
 ### API Additions
 
@@ -25,6 +32,11 @@
 - Added curried `Test.ok(with:)` for `Bool`
 - Added curried `Test.ok(with:)` for `Optional<T>`
 - Added curried `Test.pass(with:)`
+- Added `RxTaps.genericTest(_directive:source:timeout:scheduler:with:)` for `<T> Test -> Observable<T>`
+- Added `Observable.test(onNext:onCompleted:)` which won't catch errors.
+- Property `Taps.runner` is now public
+- Added static `Taps.runner(with:testing:)`
+- Added static `Taps.with(_:tests:)`
 
 ### Further Changes
 

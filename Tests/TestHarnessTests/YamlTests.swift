@@ -150,9 +150,9 @@ public class YamlTests: XCTestCase {
         XCTAssertEqual(description, "name: vknabel\nnumber: 3.0", "flat dictionaries shall not be intended")
     }
     public func testDeepDictionaryDescription() {
-        let yaml = Yaml.dictionary(["dict": .dictionary(["x": .string("Hi")]), "name": .null])
+        let yaml = Yaml.dictionary(["dict": .dictionary(["x": .string("Hi")])])
         let description = yaml.description
-        XCTAssertEqual(description, "dict: \n  x: Hi\nname: null", "deeper dictionaries shall indent right")
+        XCTAssertEqual(description, "dict: \n  x: Hi", "deeper dictionaries shall indent right")
     }
     public func testComplexDictionaryDescription() {
         let yaml = Yaml.dictionary([

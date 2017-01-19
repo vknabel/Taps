@@ -13,6 +13,7 @@ warn("Big PR") if git.lines_of_code > 500
 # Don't let testing shortcuts get into master by accident
 # fail("fdescribe left in tests") if `grep -r fdescribe Tests/ `.length > 1
 # fail("fit left in tests") if `grep -r fit Tests/ `.length > 1
+fail("runMain left in tests") if `grep -r runMain Tests/ `.length > 1
 
 # Changelog entries are required for changes to library files.
 no_changelog_entry = !git.modified_files.include?("CHANGELOG.md")
