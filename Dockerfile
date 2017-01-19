@@ -5,4 +5,3 @@ WORKDIR /code
 ADD . /code
 
 RUN swiftenv install
-RUN swift fetch
