@@ -107,7 +107,6 @@ public final class Taps {
     return start().addDisposableTo(testBag)
   }
 
-
   /// Starts to execute all `Test`s for the current `Taps`.
   /// Thereafter, there won't be executed anything.
   /// Exits with 1 if there were errors.
