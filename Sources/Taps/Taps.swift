@@ -194,7 +194,7 @@ public final class Taps {
   /// - Parameter harness: The harness, that interprets the output.
   /// - Parameter tests: All tests to be executed.
   public static func runMain(with harness: TapsHarness? = nil, testing tests: [(Taps) -> Void]) -> Never {
-    return with(harness, tests: tests).runMain()
+    with(harness, tests: tests).runMain()
   }
 
   /// Creates a hot `Taps`, that executes all given `Test`s.
