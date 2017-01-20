@@ -4,6 +4,7 @@
 [![GitHub release](https://img.shields.io/github/release/vknabel/taps.svg?style=flat-square)](https://github.com/vknabel/taps/releases)
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg?style=flat-square)](https://github.com/apple/swift-package-manager)
 ![Plaforms](https://img.shields.io/badge/Platform-Linux|macOS|iOS|tvOS|watchOS-lightgrey.svg?style=flat-square)
+![Build Status](https://img.shields.io/circleci/project/github/vknabel/Taps.svg?style=flat-square)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/vknabel/rock/master/LICENSE)
 
 Taps is a lightweight Unit Test library optimized for asynchronous code.
