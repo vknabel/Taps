@@ -37,14 +37,29 @@ internal struct FactoryTestCase {
   }
 }
 
+/// A lazy group of `TestPoint`s. Sometimes called Taps.
 public struct TestCase {
+  /// The title of the test case.
   public var title: String?
+  /// The directive of the test case.
   public var directive: Directive?
+  /// The source location of the test case.
   public var sourceLocation: SourceLocation
+  /// The maximum execution duration.
   public var timeoutInterval: RxTimeInterval?
+  /// The scheduler that shall be used for the test.
   public var scheduler: SchedulerType?
+  /// A factory of all `TestPoint`s.
   public var observable: () -> Observable<TestPoint>
 
+  /// Creates a new `TestCase`.
+  ///
+  /// - Parameter title: The title of the test case.
+  /// - Parameter directivr: The directive of the test case.
+  /// - Parameter location: The `SourceLocation` of the test case.
+  /// - Parameter interval: The maximum execution duration of the test case.
+  /// - Parameter scheduler: The scheduler that shall be used for the test.
+  /// - Parameter observable: A factory of all `TestPoint`s.
   public init(
     title: String?,
     directive: Directive? = nil,

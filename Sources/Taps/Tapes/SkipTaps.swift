@@ -1,10 +1,10 @@
 import RxSwift
 import TestHarness
 
-public struct SkipTaps: OfferingTaps {
-  public let testCaseObserver: AnyObserver<TestCase>
+private struct SkipTaps: OfferingTaps {
+  let testCaseObserver: AnyObserver<TestCase>
 
-  fileprivate init(offering taps: OfferingTaps, message: String?) {
+  init(offering taps: OfferingTaps, message: String?) {
     testCaseObserver = taps.testCaseObserver.mapObserver { testCase in
       guard testCase.directive == nil else { return testCase }
       var testCase = testCase
@@ -16,11 +16,13 @@ public struct SkipTaps: OfferingTaps {
 }
 
 public extension OfferingTaps {
-  public func skip(_ message: String? = nil) -> SkipTaps {
+  /// All tests defined inside the use of directive will be skipped.
+  public func skip(_ message: String) -> OfferingTaps {
     return SkipTaps(offering: self, message: message)
   }
 
-  public var skip: SkipTaps {
+  /// All tests defined inside the use of directive will be skipped.
+  public var skip: OfferingTaps {
     return SkipTaps(offering: self, message: nil)
   }
 }

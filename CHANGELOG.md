@@ -6,6 +6,14 @@
 
 - Removing directive parameters for all Taps
 
+## API Additions
+
+- Added `TestCase` class
+- Added `OfferingTaps` and `OfferingRxTaps` where all `TestCase`s are defined on
+- Added `OfferingTests` where all `TestPoint`s are defined on
+- Added `OfferingTaps.skip(_:)` and `OfferingTaps.skip` to skip tests
+- Added `OfferingTaps.todo(_:)` and `OfferingTaps.todo` to mark tests as todo
+
 ## 0.1.0
 
 ### Breaking Changes
