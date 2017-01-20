@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Taps"
-  s.version      = "0.1.0"
+  s.version      = "0.2.0"
   s.summary      = "Taps is a lightweight Unit Test library optimized for asynchronous code and generating TAP13 compatible output."
 
   s.description  = <<-DESC
@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/vknabel/Taps"
+  s.documentation_url = "https://vknabel.github.io/Taps"
   s.license      = 'MIT'
   s.author       = { "Valentin Knabel" => "taps@vknabel.com" }
   s.social_media_url = "https://twitter.com/vknabel"

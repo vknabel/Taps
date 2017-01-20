@@ -1,6 +1,6 @@
 import TestHarness
 
-public extension Test {
+public extension OfferingTests {
   private func assertEqual<T: Equatable>(
     _ given: T,
     _ expected: T,

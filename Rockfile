@@ -1,5 +1,5 @@
 name: Taps
-version: 0.1.0
+version: 0.2.0
 dependencies:
   - sourcery@0.5.3
   - swiftlint@0.16.0
@@ -10,7 +10,7 @@ scripts:
     - git push --tags
     # Later: Release to CocoaPods
     - open https://github.com/vknabel/Taps/releases/new?tag={{version}}
-    - bundle exec pod trunk push TestHarness.podspec --allow-warnings --swift-version=3.0
+    #- bundle exec pod trunk push TestHarness.podspec --allow-warnings --swift-version=3.0
     - bundle exec pod trunk push Taps.podspec --allow-warnings --swift-version=3.0
   prepare:
     - bundle install

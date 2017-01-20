@@ -1,7 +1,7 @@
 import RxSwift
 import TestHarness
 
-public extension Taps {
+public extension OfferingTaps {
   /// A tester for potentially throwing tests.
   ///
   /// - Parameter test: The name of the test.
@@ -14,7 +14,6 @@ public extension Taps {
   public func test(
     _ title: String? = nil,
     plan: Int? = nil,
-    directive: Directive? = nil,
     file: String = #file,
     line: Int = #line,
     column: Int = #column,
@@ -26,7 +25,6 @@ public extension Taps {
     let location = SourceLocation(file: file, line: line, column: column, function: function)
     rx.assertionTest(
       title,
-      directive: directive,
       source: location,
       timeout: interval,
       scheduler: scheduler

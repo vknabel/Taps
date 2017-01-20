@@ -1,7 +1,7 @@
 import RxSwift
 import TestHarness
 
-public extension RxTaps {
+public extension OfferingRxTaps {
   /// The default tester that takes a stream of `TestPoint`s.
   /// This is not meant to be called from inside your tests.
   /// Use it only for creating your own tester functions.
@@ -14,19 +14,19 @@ public extension RxTaps {
   /// - Parameter observable: An `Observable` of your `TestPoint`s.
   public func assertionTest(
     _ title: String?,
-    directive: Directive?,
     source location: SourceLocation,
     timeout interval: RxTimeInterval?,
     scheduler: SchedulerType?,
     with observable: @escaping () -> Observable<TestPoint>
   ) {
-    taps.addTestCase(
-      title: title,
-      directive: directive,
-      source: location,
-      timeout: interval,
-      scheduler: scheduler,
-      with: observable
+    testCaseObserver.onNext(
+      TestCase(
+        title: title,
+        source: location,
+        timeout: interval,
+        scheduler: scheduler,
+        with: observable
+      )
     )
   }
 }

@@ -1,6 +1,6 @@
 import TestHarness
 
-public extension Test {
+public extension OfferingTests {
   private func assertDoesNotThrow<T>(
     _ message: String?,
     source location: SourceLocation,

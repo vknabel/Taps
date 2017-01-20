@@ -15,7 +15,7 @@ public struct TestCount: AutoEquatable {
     self.failures = failures
   }
 
-  internal func state(for point: TestPoint, testCase: TestCase) -> TestCount {
+  internal func state(for point: TestPoint, testCase: FactoryTestCase) -> TestCount {
     switch (point.isOk, testCase.directive) {
     case (true, _), (false, .some(_)):
       return .init(passes: passes + 1, failures: failures)

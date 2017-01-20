@@ -1,4 +1,4 @@
-public  extension Test {
+public  extension OfferingTests {
   /// Just emits a passing `TestPoint`.
   ///
   /// ```swift
