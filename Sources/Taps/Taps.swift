@@ -32,7 +32,7 @@ import Foundation
 ///
 /// If you want to test `Observable`s, use `RxTaps`.
 public final class Taps: OfferingTaps {
-  private let testCases = ReplaySubject<TestCase>.createUnbounded()
+  private let testCases = ReplaySubject<FactoryTestCase>.createUnbounded()
   private let testBag = DisposeBag()
   private let tapsScheduler = OperationQueueScheduler(operationQueue: {
     let queue = OperationQueue()
@@ -56,7 +56,7 @@ public final class Taps: OfferingTaps {
     let report = self.harness.report
     return self.testCases
       .observeOn(tapsScheduler)
-      .map({ testCase -> Observable<(TestCase, TestPoint)> in
+      .map({ testCase -> Observable<(FactoryTestCase, TestPoint)> in
         return Observable.deferred {
           report(.testCase(testCase.title, directive: testCase.directive))
           return testCase.factory()
@@ -117,7 +117,7 @@ public final class Taps: OfferingTaps {
 
   public var testCaseObserver: AnyObserver<RawTestCase> {
     return self.testCases
-      .mapObserver(TestCase.init(raw:))
+      .mapObserver(FactoryTestCase.init(raw:))
   }
 
   /// Creates a cold `Taps`, that executes all given `Test`s.

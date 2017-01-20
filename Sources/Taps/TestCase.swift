@@ -8,7 +8,7 @@ fileprivate extension ObservableType {
   }
 }
 
-internal struct TestCase {
+internal struct FactoryTestCase {
   let title: String
   let directive: Directive?
   let source: SourceLocation
