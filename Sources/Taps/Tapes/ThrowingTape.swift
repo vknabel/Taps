@@ -14,7 +14,6 @@ public extension OfferingTaps {
   public func test(
     _ title: String? = nil,
     plan: Int? = nil,
-    directive: Directive? = nil,
     file: String = #file,
     line: Int = #line,
     column: Int = #column,
@@ -26,7 +25,6 @@ public extension OfferingTaps {
     let location = SourceLocation(file: file, line: line, column: column, function: function)
     rx.assertionTest(
       title,
-      directive: directive,
       source: location,
       timeout: interval,
       scheduler: scheduler

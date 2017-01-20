@@ -47,7 +47,7 @@ public struct RawTestCase {
 
   public init(
     title: String?,
-    directive: Directive?,
+    directive: Directive? = nil,
     source location: SourceLocation,
     timeout interval: RxTimeInterval?,
     scheduler: SchedulerType?,

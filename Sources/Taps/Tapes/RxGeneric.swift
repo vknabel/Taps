@@ -11,7 +11,6 @@ public extension OfferingRxTaps {
   /// - Parameter observable: An `Observable` that runs your tests.
   public func genericTest<T>(
     _ title: String? = nil,
-    directive: Directive? = nil,
     source location: SourceLocation,
     timeout interval: RxTimeInterval? = nil,
     scheduler: SchedulerType? = nil,
@@ -19,7 +18,6 @@ public extension OfferingRxTaps {
   ) {
     assertionTest(
       title,
-      directive: directive,
       source: location,
       timeout: interval,
       scheduler: scheduler
@@ -47,7 +45,6 @@ public extension OfferingRxTaps {
   /// - Parameter observable: An `Observable` that runs your tests.
   public func test<T>(
     _ title: String? = nil,
-    directive: Directive? = nil,
     file: String = #file,
     line: Int = #line,
     column: Int = #column,
@@ -59,7 +56,6 @@ public extension OfferingRxTaps {
     let location = SourceLocation(file: file, line: line, column: column, function: function)
     genericTest(
       title,
-      directive: directive,
       source: location,
       timeout: interval,
       scheduler: scheduler,

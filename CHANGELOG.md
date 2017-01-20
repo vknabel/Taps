@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+## Breaking Changes
+
+- Removing directive parameters for all Taps
+
 ## 0.1.0
 
 ### Breaking Changes

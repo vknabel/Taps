@@ -14,7 +14,6 @@ public extension OfferingRxTaps {
   /// - Parameter observable: An `Observable` of your `TestPoint`s.
   public func assertionTest(
     _ title: String?,
-    directive: Directive?,
     source location: SourceLocation,
     timeout interval: RxTimeInterval?,
     scheduler: SchedulerType?,
@@ -23,7 +22,6 @@ public extension OfferingRxTaps {
     testCaseObserver.onNext(
       RawTestCase(
         title: title,
-        directive: directive,
         source: location,
         timeout: interval,
         scheduler: scheduler,

@@ -7,7 +7,6 @@ extension RxTaps {
     _ title: String? = nil,
     plan: Int? = nil,
     against tester: @escaping (Test) -> Void,
-    directive: Directive? = nil,
     file: String = #file,
     line: Int = #line,
     column: Int = #column,
@@ -21,7 +20,6 @@ extension RxTaps {
     let mocked = Test(report: points.asObserver(), plan: plan)
     self.genericTest(
       title,
-      directive: directive,
       source: location,
       timeout: interval,
       scheduler: scheduler
