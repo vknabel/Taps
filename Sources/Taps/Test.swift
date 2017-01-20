@@ -51,7 +51,7 @@ public final class Test: OfferingTests {
   }
 }
 
-public  extension Test {
+public  extension OfferingTests {
   /// Marks a test as finished.
   /// No `TestPoint` may follow.
   public func end() {
