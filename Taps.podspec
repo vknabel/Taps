@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/vknabel/Taps"
+  s.documentation_url = "https://vknabel.github.io/Taps"
   s.license      = 'MIT'
   s.author       = { "Valentin Knabel" => "taps@vknabel.com" }
   s.social_media_url = "https://twitter.com/vknabel"
