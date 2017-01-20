@@ -26,7 +26,7 @@ internal struct FactoryTestCase {
     self.factory = factory
   }
 
-  internal init(raw: RawTestCase) {
+  internal init(raw: TestCase) {
     self.title = raw.title ?? "(anonymous)"
     self.directive = raw.directive
     self.source = raw.sourceLocation
@@ -37,7 +37,7 @@ internal struct FactoryTestCase {
   }
 }
 
-public struct RawTestCase {
+public struct TestCase {
   public var title: String?
   public var directive: Directive?
   public var sourceLocation: SourceLocation

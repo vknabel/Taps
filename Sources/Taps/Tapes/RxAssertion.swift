@@ -20,7 +20,7 @@ public extension OfferingRxTaps {
     with observable: @escaping () -> Observable<TestPoint>
   ) {
     testCaseObserver.onNext(
-      RawTestCase(
+      TestCase(
         title: title,
         source: location,
         timeout: interval,

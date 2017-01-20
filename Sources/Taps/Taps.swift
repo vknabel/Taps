@@ -115,7 +115,7 @@ public final class Taps: OfferingTaps {
     }
   }
 
-  public var testCaseObserver: AnyObserver<RawTestCase> {
+  public var testCaseObserver: AnyObserver<TestCase> {
     return self.testCases
       .mapObserver(FactoryTestCase.init(raw:))
   }

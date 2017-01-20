@@ -2,7 +2,7 @@ import RxSwift
 import TestHarness
 
 public struct TodoTaps: OfferingTaps {
-  public let testCaseObserver: AnyObserver<RawTestCase>
+  public let testCaseObserver: AnyObserver<TestCase>
 
   fileprivate init(offering taps: OfferingTaps, message: String?) {
     testCaseObserver = taps.testCaseObserver.mapObserver { testCase in

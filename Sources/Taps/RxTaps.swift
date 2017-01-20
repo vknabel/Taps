@@ -4,7 +4,7 @@ import RxSwift
 public final class RxTaps: OfferingRxTaps {
   /// The current `Taps` as a back reference. Useful for developing custom test runners.
   private let taps: OfferingTaps
-  public var testCaseObserver: AnyObserver<RawTestCase> {
+  public var testCaseObserver: AnyObserver<TestCase> {
     return taps.testCaseObserver
   }
 

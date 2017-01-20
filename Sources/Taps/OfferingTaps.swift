@@ -2,7 +2,7 @@ import RxSwift
 import TestHarness
 
 public protocol OfferingTaps {
-  var testCaseObserver: AnyObserver<RawTestCase> { get }
+  var testCaseObserver: AnyObserver<TestCase> { get }
 }
 
 public protocol OfferingRxTaps: OfferingTaps {}
