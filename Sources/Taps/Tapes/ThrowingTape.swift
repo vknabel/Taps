@@ -1,7 +1,7 @@
 import RxSwift
 import TestHarness
 
-public extension Taps {
+public extension OfferingTaps {
   /// A tester for potentially throwing tests.
   ///
   /// - Parameter test: The name of the test.

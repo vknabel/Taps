@@ -1,7 +1,7 @@
 import RxSwift
 import TestHarness
 
-public extension RxTaps {
+public extension OfferingRxTaps {
   /// A tester for common observables that will complete.
   ///
   /// - Parameter test: The name of the test.

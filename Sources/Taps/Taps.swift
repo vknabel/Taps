@@ -10,13 +10,6 @@ import Foundation
   import Darwin.libc
 #endif
 
-fileprivate extension ObservableType {
-  func timeout(_ interval: RxTimeInterval?, scheduler: SchedulerType? = nil) -> Observable<E> {
-    guard let interval = interval else { return asObservable() }
-    return self.timeout(interval, scheduler: scheduler ?? MainScheduler.instance)
-  }
-}
-
 /// This is the entry point for all of your tests.
 /// Declare a function that takes `Tape` and write your tests!
 /// In order to see how to test in detail see `Test`.
@@ -38,7 +31,7 @@ fileprivate extension ObservableType {
 /// ```
 ///
 /// If you want to test `Observable`s, use `RxTaps`.
-public final class Taps {
+public final class Taps: OfferingTaps {
   private let testCases = ReplaySubject<TestCase>.createUnbounded()
   private let testBag = DisposeBag()
   private let tapsScheduler = OperationQueueScheduler(operationQueue: {
@@ -122,25 +115,9 @@ public final class Taps {
     }
   }
 
-  internal func addTestCase(
-    title: String?,
-    directive: Directive?,
-    source location: SourceLocation,
-    timeout interval: RxTimeInterval?,
-    scheduler: SchedulerType?,
-    with observable: @escaping () -> Observable<TestPoint>
-  ) {
-    self.testCases.onNext(
-      TestCase(
-        title: title ?? "(anonymous)",
-        directive: directive,
-        source: location,
-        factory: {
-          return Observable.deferred(observable)
-            .timeout(interval, scheduler: scheduler)
-        }
-      )
-    )
+  public var testCaseObserver: AnyObserver<RawTestCase> {
+    return self.testCases
+      .mapObserver(TestCase.init(raw:))
   }
 
   /// Creates a cold `Taps`, that executes all given `Test`s.

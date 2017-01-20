@@ -2,7 +2,7 @@ import RxSwift
 
 /// Provides functions, that create `TestPoint`s.
 /// Each `TestPoint` is associated to a `Test`.
-public final class Test {
+public final class Test: OfferingTests {
   /// Observes for all `TestPoint`s.
   /// Each `TestPoint` will be passed to `Taps`.
   public private(set) var report: AnyObserver<TestPoint>
@@ -55,6 +55,6 @@ public  extension Test {
   /// Marks a test as finished.
   /// No `TestPoint` may follow.
   public func end() {
-  report.onCompleted()
+    report.onCompleted()
   }
 }
