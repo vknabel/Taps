@@ -14,18 +14,6 @@ internal struct FactoryTestCase {
   let source: SourceLocation
   let factory: () -> Observable<TestPoint>
 
-  internal init(
-    title: String,
-    directive: Directive?,
-    source location: SourceLocation,
-    factory: @escaping () -> Observable<TestPoint>
-  ) {
-    self.title = title
-    self.directive = directive
-    self.source = location
-    self.factory = factory
-  }
-
   internal init(raw: TestCase) {
     self.title = raw.title ?? "(anonymous)"
     self.directive = raw.directive

@@ -78,7 +78,9 @@ public class TapsTests: XCTestCase {
         describeTestEqual,
         describeTestNotEqual,
         describeTestFail,
-        describeTestPass
+        describeTestPass,
+        describeTapsTodo,
+        describeTapsSkip
       ]).toBlocking().single()
       XCTAssertEqual(counts?.failures, 0, "Naive tests have failed")
     } catch {
