@@ -5,6 +5,7 @@
 ## Further Changes
 
 - Fixes an issue, that prevented `OfferingTests.fail` from failing
+- Removed some internal, unused code
 
 ## 0.2.0
 
