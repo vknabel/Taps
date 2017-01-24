@@ -56,7 +56,7 @@ func describeTestDoesNotThrow(taps: Taps) {
   taps.rx.mockingTest(
     "test doesNotThrow(of:_:) on throwing some error",
     plan: 1,
-    against: { $0.doesNotThrow(SomeError.self) { throw SomeError() } }
+    against: { $0.doesNotThrow(of: SomeError.self)(SomeError()) }
   ) { t, points in
     points.test(
       onNext: t.notOk(matches: TestPoint.isOk)
@@ -66,17 +66,7 @@ func describeTestDoesNotThrow(taps: Taps) {
   taps.rx.mockingTest(
     "test doesNotThrow(of:_:) on throwing another error",
     plan: 1,
-    against: { $0.doesNotThrow(SomeError.self) { throw AnotherError() } }
-  ) { t, points in
-    points.test(
-      onNext: t.ok(matches: TestPoint.isOk)
-    )
-  }
-
-  taps.rx.mockingTest(
-    "test doesNotThrow(of:_:) on return",
-    plan: 1,
-    against: { $0.doesNotThrow(SomeError.self) { return 42 } }
+    against: { $0.doesNotThrow(of: SomeError.self)(AnotherError()) }
   ) { t, points in
     points.test(
       onNext: t.ok(matches: TestPoint.isOk)
