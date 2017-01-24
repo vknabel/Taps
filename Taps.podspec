@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Taps"
-  s.version      = "0.2.0"
+  s.version      = "0.2.1"
   s.summary      = "Taps is a lightweight Unit Test library optimized for asynchronous code and generating TAP13 compatible output."
 
   s.description  = <<-DESC
