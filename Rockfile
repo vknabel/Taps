@@ -1,5 +1,5 @@
 name: Taps
-version: 0.2.0
+version: 0.2.1
 dependencies:
   - sourcery@0.5.3
   - swiftlint@0.16.0
