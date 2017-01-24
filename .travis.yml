@@ -7,10 +7,11 @@ install:
   - export PATH="$PATH:./.rock/bin:$ROCK_PATH/bin"
   - export SWIFT_VERSION="DEVELOPMENT-SNAPSHOT-2017-01-17-a"
   - eval "$(curl -sL https://gist.githubusercontent.com/kylef/5c0475ff02b7c7671d2a/raw/9f442512a46d7a2af7b850d65a7e9bd31edfb09b/swiftenv-install.sh)"
+  - bundle install
 script:
   - set -o pipefail
   - swift package generate-xcodeproj --enable-code-coverage
-  - xcodebuild test -project Taps.xcodeproj -scheme Taps -destination 'platform=OS X,arch=x86_64'
+  - xcodebuild test -project Taps.xcodeproj -scheme Taps -destination 'platform=OS X,arch=x86_64' | xcpretty
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'Taps' -J 'TestHarness'
 cache:
