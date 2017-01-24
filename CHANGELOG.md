@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1
+
+## Further Changes
+
+- Fixes an issue, that prevented `OfferingTests.fail` from failing
+
 ## 0.2.0
 
 ## Breaking Changes
