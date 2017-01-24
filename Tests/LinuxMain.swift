@@ -8,6 +8,15 @@ import XCTest
 import TestHarnessTests
 import TapsTests
 
+extension DirectiveTests {
+  static var allTests = [
+    ("testTodoWithoutMessage", testTodoWithoutMessage),
+    ("testTodoWithMessage", testTodoWithMessage),
+    ("testSkipWithoutMessage", testSkipWithoutMessage),
+    ("testSkipWithMessage", testSkipWithMessage),
+  ]
+}
+
 extension Harness {
   static var allTests = [
     ("testCreation", testCreation),
@@ -71,6 +80,7 @@ extension YamlTests {
 
 
 XCTMain([
+  testCase(DirectiveTests.allTests),
   testCase(Harness.allTests),
   testCase(TapsTests.allTests),
   testCase(YamlTests.allTests),

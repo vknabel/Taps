@@ -6,7 +6,7 @@ public  extension OfferingTests {
     source location: SourceLocation
   ) -> TestPoint {
     let message = message ?? "fail"
-    return TestPoint(isOk: true, message: message, source: location, details: [
+    return TestPoint(isOk: false, message: message, source: location, details: [
       "operator": .string("fail")
     ])
   }
