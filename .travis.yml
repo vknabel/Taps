@@ -21,3 +21,4 @@ cache:
     - Packages
     - $HOME/.swiftenv
     - $HOME/.rock
+    - /Library/Developer/Toolchains/
