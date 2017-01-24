@@ -72,7 +72,13 @@ public class TapsTests: XCTestCase {
       let counts = try Taps.runner(testing: [
         describeTestEnd,
         describeTestDoesNotThrow,
-        describeTestDoesThrow
+        describeTestDoesThrow,
+        describeTestOk,
+        describeTestNotOk,
+        describeTestEqual,
+        describeTestNotEqual,
+        describeTestFail,
+        describeTestPass
       ]).toBlocking().single()
       XCTAssertEqual(counts?.failures, 0, "Naive tests have failed")
     } catch {
