@@ -17,11 +17,11 @@ scripts:
     - rock install
   docs:
     - rock build
-    - ./Scripts/docs.sh
+    - sourcekitten doc --spm-module Taps > Taps.json
     - jazzy --sourcekitten-sourcefile Taps.json --clean --module-version {{version}} --output docs/generated/master
   docs-release:
     - rock build
-    - ./Scripts/docs.sh
+    - sourcekitten doc --spm-module Taps > Taps.json
     - jazzy --sourcekitten-sourcefile Taps.json --clean --module-version {{version}} --output docs/generated/{{version}}
   generate:
     # Generate TestHarness.AutoEquatable
@@ -35,11 +35,14 @@ scripts:
     # Generate AutoInit
     - sourcery Sources/TestHarness/Generating Templates/AutoInit.swift.stencil Sources/TestHarness/Generated/AutoInit.generated.swift
     # Generate LinuxMain
-    - ./Scripts/sourcery-linuxmain.sh
+    - |
+        sourcery Tests Templates/LinuxMain.swift.stencil Tests/LinuxMain.swift --args "testimports=import TestHarnessTests
+        import TapsTests"
+
   lint:
     - swiftlint autocorrect
     - swiftlint
-  watch:
+  watch: # Currently rock cannot terminate sub-processes
     - echo fswatch -o .build/debug/ --latency 3 --exclude .build/debug/*Tests.* | xargs -n1 -I{} swift test
     # Generate TestHarness.AutoEquatable
     - echo sourcery Sources/TestHarness/Generating Templates/AutoEquatable.swift.stencil Sources/TestHarness/Generated/AutoEquatable.generated.swift --watch
