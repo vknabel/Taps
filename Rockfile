@@ -1,14 +1,26 @@
 name: Taps
-version: 0.2.1
+version: 0.2.2
 dependencies:
   - sourcery@0.5.3
   - swiftlint@0.16.0
 scripts:
   publish:
+    - "# Ensure your have run `rock run docs` before"
+    # Releases may only be made on branch master
+    - |
+        if [ $(git branch | grep \* | cut -d ' ' -f2) != "master" ]
+        then
+          echo Releases must be created from branch master
+          exit 1
+        fi
+    # Assert clean working directory
+    - git diff --exit-code > /dev/null
     # Set git tag
     - git tag -a {{version}} -m {{version}}
     - git push --tags
-    # Later: Release to CocoaPods
+    # Copy latest Changelog
+    - sed -n /'^## 0.2.2$'/,/'^## '/p CHANGELOG.md | sed -e '$ d' | pbcopy
+    # Create new release on Github
     - open https://github.com/vknabel/Taps/releases/new?tag={{version}}
     #- bundle exec pod trunk push TestHarness.podspec --allow-warnings --swift-version=3.0
     - bundle exec pod trunk push Taps.podspec --allow-warnings --swift-version=3.0
@@ -18,11 +30,7 @@ scripts:
   docs:
     - rock build
     - sourcekitten doc --spm-module Taps > Taps.json
-    - jazzy --sourcekitten-sourcefile Taps.json --clean --module-version {{version}} --output docs/generated/master
-  docs-release:
-    - rock build
-    - sourcekitten doc --spm-module Taps > Taps.json
-    - jazzy --sourcekitten-sourcefile Taps.json --clean --module-version {{version}} --output docs/generated/{{version}}
+    - jazzy --sourcekitten-sourcefile Taps.json --clean --module-version {{version}} --output docs/generated/
   generate:
     # Generate TestHarness.AutoEquatable
     - sourcery Sources/TestHarness/Generating Templates/AutoEquatable.swift.stencil Sources/TestHarness/Generated/AutoEquatable.generated.swift

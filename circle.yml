@@ -6,6 +6,8 @@ dependencies:
   override:
     - docker build -t taps .
     - bundle install
+  cache_directories:
+    - Packages
 
 test:
   override:
