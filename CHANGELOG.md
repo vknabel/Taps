@@ -1,19 +1,25 @@
 # Changelog
 
+## 0.2.2
+
+### Further Changes
+
+- Removed different versions of docs in favor of the current one.
+
 ## 0.2.1
 
-## Further Changes
+### Further Changes
 
 - Fixes an issue, that prevented `OfferingTests.fail` from failing
 - Removed some internal, unused code
 
 ## 0.2.0
 
-## Breaking Changes
+### Breaking Changes
 
 - Removing directive parameters for all Taps
 
-## API Additions
+### API Additions
 
 - Added `TestCase` class
 - Added `OfferingTaps` and `OfferingRxTaps` where all `TestCase`s are defined on
