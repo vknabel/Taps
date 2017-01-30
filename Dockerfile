@@ -5,3 +5,4 @@ WORKDIR /code
 ADD ./Sources /code/Sources
 ADD ./Tests /code/Tests
 ADD ./Package.swift /code/Package.swift
+ADD ./Packages /code/Packages
