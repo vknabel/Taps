@@ -14,12 +14,12 @@ scripts:
           exit 1
         fi
     # Assert clean working directory
-    - git diff --exit-code > /dev/null
+    - "git diff --exit-code > /dev/null"
     # Set git tag
     - git tag -a {{version}} -m {{version}}
     - git push --tags
     # Copy latest Changelog
-    - sed -n /'^## 0.2.2$'/,/'^## '/p CHANGELOG.md | sed -e '$ d' | pbcopy
+    - "sed -n /'^## {{version}}$'/,/'^## '/p CHANGELOG.md | sed -e '$ d' | pbcopy"
     # Create new release on Github
     - open https://github.com/vknabel/Taps/releases/new?tag={{version}}
     #- bundle exec pod trunk push TestHarness.podspec --allow-warnings --swift-version=3.0
@@ -65,3 +65,7 @@ scripts:
     # Generate LinuxMain
     - "echo sourcery Tests Templates/LinuxMain.swift.stencil Tests/LinuxMain.swift --args \"testimports=import TestHarnessTests
 import TapsTests\""
+  docker-build:
+    - docker build -t taps .
+  docker-test:
+    - docker run taps swift test
