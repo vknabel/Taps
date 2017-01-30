@@ -2,6 +2,6 @@ FROM kylef/swiftenv:swift3
 
 RUN mkdir -p /code
 WORKDIR /code
-ADD . /code
-
-RUN swiftenv install
+ADD ./Sources /code/Sources
+ADD ./Tests /code/Tests
+ADD ./Package.swift /code/Package.swift
