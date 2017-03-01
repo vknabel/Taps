@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.3 (SwiftPM only)
+
+### Further Changes
+
+- Uses `.git` as extension for RxSwift
+
 ## 0.2.2
 
 ### Further Changes
