@@ -7,6 +7,6 @@ let package = Package(
         Target(name: "TestHarness")
     ],
     dependencies: [
-        .Package(url: "https://github.com/ReactiveX/RxSwift", majorVersion: 3)
+        .Package(url: "https://github.com/ReactiveX/RxSwift.git", majorVersion: 3)
     ]
 )
